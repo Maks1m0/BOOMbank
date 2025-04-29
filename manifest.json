@@ -1,0 +1,20 @@
+{
+  "name": "BOOMbank",
+  "short_name": "BOOMbank",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#ff6200",
+  "icons": [
+    {
+      "src": "boom-bank-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "boom-bank-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

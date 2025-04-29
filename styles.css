@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #ff6200;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s;
+    box-shadow: 0 0 10px #ff6200, 0 0 20px #ff6200;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ff6200, 0 0 30px #ff6200;
+}
+
+nav button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background-color: #555;
+}
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+.form-container {
+    display: none;
+    background-color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6200;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #e55a00;
+}
+
+#ai-assistant {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.assistant-container {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #ff6200;
+}
+
+.assistant-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#assistant-message {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#exchange-rates {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.rates {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.rate-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    transition: transform 0.3s;
+}
+
+.rate-card h3 {
+    margin-bottom: 10px;
+}
+
+.converter-container {
+    margin-top: 30px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px #ff6200;
+}
+
+.converter-container h3 {
+    margin-bottom: 15px;
+}
+
+.converter-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.converter-form input,
+.converter-form select {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.converter-form input {
+    width: 120px;
+}
+
+.converter-form select {
+    width: 100px;
+    appearance: none;
+    padding-right: 25px;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff6200" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+}
+
+.converter-form select option {
+    background-color: #444;
+    color: #fff;
+}
+
+.converter-form span {
+    font-size: 20px;
+    color: #ff6200;
+}
+
+.converter-form button {
+    background-color: #ff6200;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.converter-form button:hover {
+    background-color: #e55a00;
+}
+
+#conversion-result {
+    margin-top: 15px;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#conversion-result.show {
+    opacity: 1;
+}
+
+#conversion-history {
+    margin-top: 20px;
+}
+
+#conversion-history h4 {
+    margin-bottom: 10px;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#history-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+}
+
+#history-list li:last-child {
+    border-bottom: none;
+}
+
+#bank-card {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#card-balance {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6200;
+}
+
+.card-container {
+    perspective: 1000px;
+    width: 350px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff6200;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #ff6200 0%, #ff8c00 50%, #333 100%); /* Новый градиент */
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.card-chip {
+    font-size: 30px;
+    text-align: left;
+}
+
+.card-number {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #333 0%, #ff8c00 50%, #ff6200 100%); /* Новый градиент */
+    color: #fff;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.card-stripe {
+    background-color: #000;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.card-signature {
+    background-color: #fff;
+    color: #000;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-cvv {
+    text-align: right;
+    font-size: 14px;
+}
+
+.balance-operations {
+    margin-top: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px #ff6200;
+}
+
+.balance-operations h3 {
+    margin-bottom: 15px;
+}
+
+.balance-operations input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.operation-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.operation-buttons button {
+    flex: 1;
+    padding: 8px;
+}
+
+#card-generator {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#card-generator button {
+    background-color: #ff6200;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#card-generator button:hover {
+    background-color: #e55a00;
+}
+
+#card-id {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+footer {
+    background-color: #ff6200;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Эффекты подсветки */
+.glow {
+    box-shadow: 0 0 10px #ff6200, 0 0 20px #ff6200, 0 0 30px #ff6200;
+    transition: box-shadow 0.3s;
+}
+
+.glow:hover {
+    box-shadow: 0 0 15px #ff6200, 0 0 30px #ff6200, 0 0 45px #ff6200;
+}
+
+.glow-card {
+    box-shadow: 0 0 10px #ff6200, 0 0 20px #ff6200;
+}
+
+.glow-card:hover {
+    transform: scale(1.05);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .logo-image {
+        height: 40px;
+    }
+
+    nav button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .rates {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rate-card {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+    }
+
+    .converter-form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .converter-form input,
+    .converter-form select {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .card-container {
+        width: 300px;
+        height: 190px;
+    }
+
+    .card-front, .card-back {
+        padding: 15px;
+    }
+
+    .card-logo {
+        font-size: 18px;
+    }
+
+    .card-number {
+        font-size: 16px;
+    }
+
+    .card-details {
+        font-size: 12px;
+    }
+
+    .operation-buttons {
+        flex-direction: column;
+    }
+
+    .operation-buttons button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 30px;
+    }
+
+    nav button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .rate-card {
+        padding: 15px;
+    }
+
+    #card-generator button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .card-container {
+        width: 250px;
+        height: 160px;
+    }
+
+    .card-logo {
+        font-size: 16px;
+    }
+
+    .card-number {
+        font-size: 14px;
+    }
+}
